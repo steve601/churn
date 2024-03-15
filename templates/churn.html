@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App</title>
+    <style>
+        body{
+            background-color: lightgrey;
+        }
+        .head{
+            text-align: center;
+            font-size: 20px
+        }
+        .par{
+            text-align: center;
+            font-size: 18px;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            height: 120vh;
+        }
+        form h2{
+            text-align: center;
+        }
+        form{
+            background-color: lavender;
+            border-radius: 10px
+            padding: 25px;
+            width: 340px;
+        }
+        form label{
+            width: 300px;
+            height: 40px;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+        form input{
+            background: transparent;
+            height: 20px;
+            border-bottom: 2px solid skyblue;
+            border-top: none;
+            border-right: none;
+            border-left: none
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h1>CUSTOMER CHURN MODELLING</h1>
+    </div>
+    <div class="par">
+        <p> This's the rate at which business loses customers.A high customer churn rate indicates that large percentage <br> of your
+            customers no longer wants to purchase your product.This web applocation therefore aims at predicting <br> whether a 
+            customer will leave an bank or not</p>
+    </div>
+    <div class="container">
+        <form action="/predict" method='POST'>
+            <h2>Predict</h2>
+            <label for="CreditScore">Credit Score</label><br>
+            <input type="number" name="CreditScore" value="CreditScore" style = 'width: 250px;'><br>
+            <label for="Geography">Geographical Location</label><br>
+            <input type="radio" name="Geography" value="France">
+            <label for="France">France</label><br>
+            <input type="radio" name="Geography" value="Germany">
+            <label for="Geramny">Germany</label><br>
+            <input type="radio" name="Geography" value="Spain">
+            <label for="Spain">Spain</label><br>
+            <label for="Gender" >Gender</label><br>
+            <input type="radio" name="Gender" value="Male">
+            <label for="Male">Male</label><br>
+            <input type="radio" name="Gender" value="Female">
+            <label for="Female">Female</label><br>
+            <label for="Age">Age</label><br>
+            <input type="number" name= "Age" value = "Age" min = 18 max=92 style = 'width: 250px;'><br>
+            <label for="Tenure">Tenure</label><br>  
+            <input type="number" name='Tenure' value='Tenure' min=0 max=10 style = 'width: 250px;'><br>
+            <label for="Balance">Account balance</label><br>
+            <input type="number" name='Balance' value='Balance' style = 'width: 250px;'><br>
+            <label for="NumOfProducts">Number of products purchased</label><br>
+            <input type="number" name='NumOfProducts' value='NumOfProducts' min=1 max=4 style = 'width: 250px;'><br>
+            <label for="HasCrCard">Has Credit Card?(1 for Yes,0 for No)</label><br>
+            <input type="number" name = 'HasCrCard' value = 'HasCrCard' min=0 max=1 style = 'width: 250px;'><br>
+            <label for="IsActiveMember">Is an active member?(1 for Yes,0 for No)</label><br>
+            <input type="number" name='IsActiveMember' value='IsActiveMember' min=0 max=1 style = 'width: 250px;'><br>
+            <label for="EstimatedSalary">Estimated Salary</label><br>
+            <input type="number" name='EstimatedSalary' value='EstimatedSalary' style = 'width: 250px;'><br>
+            <br>
+            <button type='submit' value='Predict'>Predict</button><br><br>
+            {{pred_text}}
+        </form>
+    </div>
+</body>
+</html>
